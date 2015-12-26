@@ -1,0 +1,33 @@
+<%= form_for(@short_url) do |f| %>
+  <% if @short_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@short_url.errors.count, "error") %> prohibited this short_url from being saved:</h2>
+
+      <ul>
+      <% @short_url.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :original_url %><br>
+    <%= f.text_field :original_url %>
+  </div>
+  <div class="field">
+    <%= f.label :shorty %><br>
+    <%= f.text_field :shorty %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :visits_count %><br>
+    <%= f.number_field :visits_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

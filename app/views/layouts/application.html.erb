@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UrlShortner</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <% if current_user %>
+      <div class="user_info" >
+        <div class="user_email">
+        <%= current_user.email %>
+        </div>
+        <%= "Your API Token is: #{current_user.api_token}"%>
+        <%= link_to "Log out", logout_path, method: :delete , :class => 'logout' %>
+      </div>
+  <% end %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

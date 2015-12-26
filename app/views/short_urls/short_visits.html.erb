@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Short Visits Geolocations</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Visitor IP</th>
+    <th>Visitor City</th>
+    <th>Visitor State</th>
+    <th>Visitor Country</th>
+    <th>Visitor Country Code</th>
+    <th>Time of Visit</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @short_visits.each do |short_visit| %>
+      <tr>
+        <td><%= short_visit.visitor_ip %></td>
+        <td><%= short_visit.visitor_city%></td>
+        <td><%= short_visit.visitor_state %></td>
+        <td><%= short_visit.visitor_country %></td>
+        <td><%= short_visit.visitor_country_iso2 %></td>
+        <td><%= short_visit.created_at %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>

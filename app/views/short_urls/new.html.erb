@@ -1,0 +1,11 @@
+<h1>New Short Url</h1>
+
+<%= form_for(:short_url, url: short_urls_path) do |f| %>
+
+    <%= f.label :original_url %>
+    <%= f.text_field :original_url, class: 'form-control' %>
+
+    <%= f.submit "Create Short Url", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back', short_urls_path %>

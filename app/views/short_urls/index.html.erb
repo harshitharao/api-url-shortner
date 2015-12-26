@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Short Urls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Original url</th>
+      <th>Shorty</th>
+      <th>Visits count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @short_urls.each do |short_url| %>
+      <tr>
+        <td><%= link_to short_url.original_url,  "/#{short_url.shorty}" %></td>
+        <td><%= link_to short_url.shorty,  "/#{short_url.shorty}" %></td>
+        <td><%= short_url.visits_count %></td>
+        <td><%= link_to 'Show', short_url %></td>
+        <td><%= link_to 'Destroy', short_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Geolocation',"/short_urls/#{short_url.id}/short_visits" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @short_urls %>
+<br>
+
+<%= link_to 'New Short url', new_short_url_path %>
